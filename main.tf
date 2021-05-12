@@ -10,6 +10,21 @@ variable "region" {
   type    = string
   default = "ap-northeast-1"
 }
+
+variable "cidr_vpc" {
+  default = "10.1.0.0/16"
+}
+
+variable "cidr_subnet" {
+  type = map(string)
+
+  default = {
+    a = "10.1.0.0/24"
+    c = "10.1.16.0/24"
+    d = "10.1.32.0/24"
+  }
+}
+
 variable "image_metabase" {
   type    = string
   default = "metabase/metabase:latest"
