@@ -13,6 +13,11 @@ resource "aws_ecs_service" "metabase" {
   deployment_controller {
     type = "ECS"
   }
+  load_balancer {
+    container_name   = var.container-metabase
+    container_port   = 3000
+    target_group_arn = aws_alb_target_group.ecs-metabase-service.arn
+  }
   network_configuration {
     assign_public_ip = true
     security_groups = [

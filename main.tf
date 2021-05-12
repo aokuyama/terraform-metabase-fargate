@@ -11,6 +11,10 @@ variable "region" {
   default = "ap-northeast-1"
 }
 
+variable "cert_arn" {
+  type = string
+}
+
 variable "cidr_vpc" {
   default = "10.1.0.0/16"
 }
@@ -36,4 +40,3 @@ variable "task_role_arn" {
 variable "container-metabase" {
   default = "container-metabase"
 }
-
