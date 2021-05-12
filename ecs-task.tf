@@ -8,16 +8,16 @@ resource "aws_ecs_task_definition" "metabase" {
   container_definitions = jsonencode(
     [
       {
-        cpu = 0
+        cpu         = 0
         environment = []
         essential   = true
         image       = var.image_metabase
         mountPoints = []
-        name        = "container-metabase"
+        name        = var.container-metabase
         portMappings = [
           {
-            containerPort = 80
-            hostPort      = 80
+            containerPort = 3000
+            hostPort      = 3000
             protocol      = "tcp"
           },
         ]

@@ -32,3 +32,8 @@ variable "image_metabase" {
 variable "task_role_arn" {
   type = string
 }
+
+variable "container-metabase" {
+  default = "container-metabase"
+}
+
