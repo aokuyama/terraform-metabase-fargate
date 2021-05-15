@@ -11,6 +11,13 @@ variable "region" {
   default = "ap-northeast-1"
 }
 
+variable "hostzone_name" {
+  type = string
+}
+variable "host_metabase" {
+  type = string
+}
+
 variable "cert_arn" {
   type = string
 }
