@@ -8,8 +8,29 @@ resource "aws_ecs_task_definition" "metabase" {
   container_definitions = jsonencode(
     [
       {
-        cpu         = 0
-        environment = []
+        cpu = 0
+        environment = [
+          {
+            name  = "MB_DB_TYPE"
+            value = var.mb_db_type
+          },
+          {
+            name  = "MB_DB_DBNAME"
+            value = var.mb_db_name
+          },
+          {
+            name  = "MB_DB_PORT"
+            value = var.mb_db_port
+          },
+          {
+            name  = "MB_DB_USER"
+            value = var.mb_db_user
+          },
+          {
+            name  = "MB_DB_HOST"
+            value = var.mb_db_host
+          },
+        ]
         essential   = true
         image       = var.image_metabase
         mountPoints = []
@@ -19,6 +40,12 @@ resource "aws_ecs_task_definition" "metabase" {
             containerPort = 3000
             hostPort      = 3000
             protocol      = "tcp"
+          },
+        ]
+        secrets = [
+          {
+            name      = "MB_DB_PASS"
+            valueFrom = "mb_db_pass"
           },
         ]
         volumesFrom = []

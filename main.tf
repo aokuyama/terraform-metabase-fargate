@@ -40,3 +40,19 @@ variable "task_role_arn" {
 variable "container-metabase" {
   default = "container-metabase"
 }
+
+variable "mb_db_type" {
+  type = string
+}
+variable "mb_db_name" {
+  type = string
+}
+variable "mb_db_port" {
+  type = string
+}
+variable "mb_db_user" {
+  type = string
+}
+variable "mb_db_host" {
+  type = string
+}
