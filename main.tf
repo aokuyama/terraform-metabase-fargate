@@ -63,3 +63,10 @@ variable "mb_db_user" {
 variable "mb_db_host" {
   type = string
 }
+
+variable "tools_allow_cidrs" {
+  type = list(string)
+  default = [
+    "0.0.0.0/0",
+  ]
+}

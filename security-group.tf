@@ -32,13 +32,11 @@ resource "aws_security_group" "alb-metabase" {
     from_port   = 443
     to_port     = 443
     protocol    = "tcp"
-    cidr_blocks = ["0.0.0.0/0"]
+    cidr_blocks = var.tools_allow_cidrs
   }
   egress = [
     {
-      cidr_blocks = [
-        "0.0.0.0/0",
-      ]
+      cidr_blocks      = ["0.0.0.0/0"]
       description      = ""
       from_port        = 0
       ipv6_cidr_blocks = []
