@@ -11,6 +11,11 @@ variable "region" {
   default = "ap-northeast-1"
 }
 
+variable "timezone" {
+  type    = string
+  default = "Asia/Tokyo"
+}
+
 variable "hostzone_name" {
   type = string
 }

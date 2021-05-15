@@ -2,8 +2,8 @@ resource "aws_ecs_task_definition" "metabase" {
   family             = "metabase"
   execution_role_arn = var.task_role_arn
   task_role_arn      = var.task_role_arn
-  cpu                = 256
-  memory             = 512
+  cpu                = 512
+  memory             = 1024
   network_mode       = "awsvpc"
   container_definitions = jsonencode(
     [
@@ -29,6 +29,14 @@ resource "aws_ecs_task_definition" "metabase" {
           {
             name  = "MB_DB_HOST"
             value = var.mb_db_host
+          },
+          {
+            name  = "JAVA_TOOL_OPTIONS"
+            value = "-Xmx1g"
+          },
+          {
+            name  = "JAVA_TIMEZONE"
+            value = var.timezone
           },
         ]
         essential   = true
